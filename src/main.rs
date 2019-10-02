@@ -1,16 +1,16 @@
 extern crate rand;
 
-use std::io;
+// use std::io;
 use rand::Rng;
 
 
 fn main() {
    
-    let mut numbers: Vec<i32> = Vec::new();
+    let mut numbers: Vec<u32> = Vec::new();
     
     println!("Enter numbers to add to the vector. Enter q to stop");
 
-    loop {
+/*    loop {
         let mut input = String::new();
         match io::stdin().read_line(&mut input) {
             Err(_) => continue,
@@ -29,7 +29,11 @@ fn main() {
 
         numbers.push(input);      
     }    
-
+*/
+    for _i in 0..500 {
+        let input : u32 = rand::thread_rng().gen_range(0,10);
+        numbers.push(input);
+    }
     println!("Numbers = {:?}", numbers);
 
 
@@ -42,8 +46,8 @@ fn main() {
 
 }
 
-fn average(numbers : &[i32]) -> f64 {
-    let mut average: i32 = 0;
+fn average(numbers : &[u32]) -> f64 {
+    let mut average: u32 = 0;
     for item in numbers {
         average = average + item;
     }
@@ -51,7 +55,7 @@ fn average(numbers : &[i32]) -> f64 {
     average
 }
 
-fn user_sort(numbers: &mut Vec<i32>) {
+fn user_sort(numbers: &mut Vec<u32>) {
     for index in 0..numbers.len() {
         let mut smallest = numbers[index];
         let mut smallest_index = index;
